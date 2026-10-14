@@ -24,8 +24,16 @@ void DemoConversion(){
     }
 }
 
+void XOR(){
+    for(char c: Plaintext){
+        bitset<8> PlaintextBinary(c); // 8 bit conversion again, done on the character
+        bitset<8> PlaintextKey(Key1);
+        cout << PlaintextBinary;
+    }
+}
+
 int main(){
     DemoConversion(); // Call the function
-
+    XOR();
 return 0;
 }
