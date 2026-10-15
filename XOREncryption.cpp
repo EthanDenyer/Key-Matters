@@ -27,7 +27,7 @@ void DemoConversion(){
 // This XOR function works by taking a plaintext character, converting into binary and then XORing with a key of the same
 // length as the binary plaintext message to give its encrypted ciphertext. 
 
-bitset<8> XOREncrypt(){
+bitset<8> BasicXOREncrypt(){
     bitset<8> PlaintextBinary(Plaintext); // 8 bit plaintext 
     bitset<8> BinaryKey(Key1); // 8 bit key
     bitset<8> Ciphertext; // Storage for XOR 
@@ -45,7 +45,7 @@ bitset<8> XOREncrypt(){
 // In keeping with the idea of a symmetric key, we do not pass the key over to the Decrypt function, nor do we use a global
 // function, it is simply declared locally.
 
-void XORDecrypt(bitset<8> Ciphertext){
+void BasicXORDecrypt(bitset<8> Ciphertext){
     bitset<8> BinaryKey(Key1); // 8 bit key
     bitset <8> Plaintext = Ciphertext ^ BinaryKey;
     cout << "XOR Decrypt function: " << "\n";
@@ -57,8 +57,8 @@ void XORDecrypt(bitset<8> Ciphertext){
 
 int main(){
     // DemoConversion(); // Call the function
-    bitset<8> EncryptedMessage = XOREncrypt();
-    XORDecrypt(EncryptedMessage);
+    bitset<8> EncryptedMessage = BasicXOREncrypt();
+    BasicXORDecrypt(EncryptedMessage);
 
 return 0;
 }
