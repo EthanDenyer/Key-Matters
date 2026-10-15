@@ -47,11 +47,9 @@ void BasicXORDecrypt(bitset<8> Ciphertext){
 void XORAttack(bitset<8> Ciphertext){
     for (int i = 0; i <256; i = i +1){
         bitset<8> Attack(i);
-        int conversion = Attack.to_ullong();
-        bitset <8> attackattempt = conversion ^ Attack;
-        char newconversion = (char)conversion;
-
-
+        bitset <8> attackattempt = Ciphertext ^ Attack; 
+        char candidate = static_cast<char>(attackattempt.to_ulong());    
+        cout << "Key: " << i << " produced: " << candidate << "\n";     
     } 
 }
 
