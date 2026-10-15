@@ -34,9 +34,8 @@ bitset<8> BasicXOREncrypt(){
     return Ciphertext;
 }
 
-
 void BasicXORDecrypt(bitset<8> Ciphertext){
-    bitset<8> BinaryKey(Key1); // 8 bit key
+    bitset<8> BinaryKey(Key1); 
     bitset <8> Plaintext = Ciphertext ^ BinaryKey;
     cout << "XOR Decrypt function: " << "\n";
     cout << "Received ciphertext is: " << Ciphertext << "\n";
@@ -45,11 +44,22 @@ void BasicXORDecrypt(bitset<8> Ciphertext){
     cout << "Recovered Binary is: " << RecoveredBinary; 
 }
 
+void XORAttack(bitset<8> Ciphertext){
+    for (int i = 0; i <256; i = i +1){
+        bitset<8> Attack(i);
+        int conversion = Attack.to_ullong();
+        bitset <8> attackattempt = conversion ^ Attack;
+        char newconversion = (char)conversion;
+
+
+    } 
+}
 
 int main(){ // Simply uncomment the parts which you would like to demonstrate
     // DemoConversion(); // Call the function
-    // bitset<8> EncryptedMessage = BasicXOREncrypt();
+    bitset<8> EncryptedMessage = BasicXOREncrypt();
     // BasicXORDecrypt(EncryptedMessage);
+    XORAttack(EncryptedMessage);
 
 return 0;
 }
