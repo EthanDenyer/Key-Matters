@@ -29,20 +29,32 @@ void DemoConversion(){
 
 bitset<8> XOREncrypt(){
     bitset<8> PlaintextBinary(Plaintext); // 8 bit plaintext 
-    bitset<8> PlaintextKey(Key1); // 8 bit key
+    bitset<8> BinaryKey(Key1); // 8 bit key
     bitset<8> Ciphertext; // Storage for XOR 
-    Ciphertext = PlaintextBinary ^ PlaintextKey; // Ciphertext is the XOR of PlaintextBinary and PlaintextKey
+    Ciphertext = PlaintextBinary ^ BinaryKey; // Ciphertext is the XOR of PlaintextBinary and PlaintextKey
 
+    cout << "XOR Encrypt function:" << "\n";
     cout << "Plaintext is: " << PlaintextBinary << "\n"; // Debug binary length
-    cout << "Plaintext Key is: " << PlaintextKey << "\n"; // Debug binary length
+    cout << "Plaintext Key is: " << BinaryKey << "\n"; // Debug binary length
     cout << "Ciphertext is: " << Ciphertext << "\n";
+    cout << "\n";
     
     return Ciphertext;
 }
 
+// In keeping with the idea of a symmetric key, we do not pass the key over to the Decrypt function, nor do we use a global
+// function, it is simply declared locally.
+
 void XORDecrypt(bitset<8> Ciphertext){
-    cout << "If you see this i have successfully passed the value" << Ciphertext;
+    bitset<8> BinaryKey(Key1); // 8 bit key
+    bitset <8> Plaintext = Ciphertext ^ BinaryKey;
+    cout << "XOR Decrypt function: " << "\n";
+    cout << "Received ciphertext is: " << Ciphertext << "\n";
+    cout << "Plaintext Binary is: " << Plaintext << "\n";
+    char RecoveredBinary = static_cast<char>(Plaintext.to_ulong());
+    cout << "Recovered Binary is: " << RecoveredBinary; 
 }
+
 int main(){
     // DemoConversion(); // Call the function
     bitset<8> EncryptedMessage = XOREncrypt();
