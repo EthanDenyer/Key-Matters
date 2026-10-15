@@ -31,10 +31,11 @@ void XOR(){
     bitset<8> PlaintextBinary(Plaintext); // 8 bit plaintext 
     bitset<8> PlaintextKey(Key1); // 8 bit key
     bitset<8> Ciphertext; // Storage for XOR 
-    cout << "Plaintext is: " << PlaintextBinary << "\n"; // Debug binary length
-    cout << "Plaintext Key is " << PlaintextKey << "\n"; // Debug binary length
     Ciphertext = PlaintextBinary ^ PlaintextKey; // Ciphertext is the XOR of PlaintextBinary and PlaintextKey
-    cout << Ciphertext;
+
+    cout << "Plaintext is: " << PlaintextBinary << "\n"; // Debug binary length
+    cout << "Plaintext Key is: " << PlaintextKey << "\n"; // Debug binary length
+    cout << "Ciphertext is: " << Ciphertext << "\n";
 }
 
 int main(){
