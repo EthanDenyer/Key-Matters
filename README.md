@@ -67,5 +67,3 @@ Key: 68 produced: E
 Key `67` (`'C'`) recovers the original plaintext `'B'`. The attack does not access the original key; it tries every possibility.
 
 This demonstrates that a single-byte key has a small, exhaustively searchable key space. However, every possible plaintext byte appears once, so the attack cannot identify the correct character without additional information.
-
-The next experiment will apply the attack to a longer message encrypted with the same single-byte key, making meaningful plaintext easier to recognise.
