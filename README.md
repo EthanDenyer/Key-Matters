@@ -46,9 +46,26 @@ Both encryption and decryption obtain their key from the global variable `Key1`.
 
 ## Brute-Force Attack on Single-Byte XOR
 
-XORAttack() tests all 256 possible eight-bit keys against a ciphertext byte. For each candidate key, it performs XOR, converts the result into a character, and displays the candidate plaintext alongside the key value.
+`XORAttack()` receives the ciphertext as a parameter and tests all 256 possible eight-bit keys, from `0` to `255`.
 
-In the demonstration, key 67 ('C') recovers the original plaintext 'B'. However, every possible plaintext byte appears once, so the ciphertext alone cannot identify the correct answer without additional information.
+Each candidate key is represented as a `bitset<8>` and XORed with the ciphertext:
 
-This demonstration is meant to demonstrate the concept at work with a single plaintext byte. 
+```text
+Ciphertext:    00000001
+Candidate key: 01000011
+Result:        01000010
+```
 
+The result is converted into a numeric value using `.to_ulong()`, then into a character using `static_cast<char>()`. Each candidate is displayed alongside its key:
+
+```text
+Key: 66 produced: C
+Key: 67 produced: B
+Key: 68 produced: E
+```
+
+Key `67` (`'C'`) recovers the original plaintext `'B'`. The attack does not access the original key; it tries every possibility.
+
+This demonstrates that a single-byte key has a small, exhaustively searchable key space. However, every possible plaintext byte appears once, so the attack cannot identify the correct character without additional information.
+
+The next experiment will apply the attack to a longer message encrypted with the same single-byte key, making meaningful plaintext easier to recognise.
