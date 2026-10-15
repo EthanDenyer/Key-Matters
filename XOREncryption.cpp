@@ -10,26 +10,25 @@ using namespace std;
 // Globals
 
 string DemoConversionMessage = "Here is a demonstration that I can convert from strings to binary";
-string Plaintext = "B";
-string Key1 = "C";
+char Plaintext = 'B';
+char Key1 = 'C';
 
 // Basic exercise to demonstrate reversible conversion for string to binary.
 void DemoConversion(){
     for (char c : DemoConversionMessage){
         bitset<8> binary(c); // 8 Bits per character, the bitset stores the bits
         int conversion = binary.to_ullong();
-        cout << binary << "is the binary version of: " << conversion << "\n";
+        cout << binary << " is the binary version of: " << conversion << "\n";
         char newconversion = (char)conversion;
         cout << "and here is my character: " << (newconversion) << "\n";
     }
 }
 
 void XOR(){
-    for(char c: Plaintext){
-        bitset<8> PlaintextBinary(c); // 8 bit conversion again, done on the character
-        bitset<8> PlaintextKey(Key1);
-        cout << PlaintextBinary;
-    }
+    bitset<8> PlaintextBinary(Plaintext); // 8 bit conversion again, done on the character
+    bitset<8> PlaintextKey(Key1);
+    cout << "Plaintext is: " << PlaintextBinary << "\n";
+    cout << "Plaintext Key is " << PlaintextKey;
 }
 
 int main(){
