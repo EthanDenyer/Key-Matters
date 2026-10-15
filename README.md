@@ -71,18 +71,3 @@ The calls in `main()` control which demonstrations run:
 
 Uncomment the relevant calls to enable each demonstration. Decryption requires the ciphertext returned by encryption.
 
-## Current Status and Limitations
-
-The completed implementation demonstrates encryption and decryption of one character using one key byte. Ciphertext is displayed as bits because encrypted bytes may represent invisible control characters.
-
-The `XORAttack()` function is under development and is not yet a working attack. Its current implementation contains a type mismatch that prevents compilation, even if its call in `main()` is commented out.
-
-This is an educational demonstration. A single-byte XOR key has only 256 possible values. Key length alone does not guarantee security; a one-time pad requires a uniformly random, secret key at least as long as the message, with no key material reused.
-
-## Planned Extensions
-
-- Encrypt and decrypt complete messages.
-- Enumerate all 256 possible single-byte keys.
-- Compare single-byte and repeating-key XOR.
-- Investigate how key reuse exposes information.
-- Explain how a correctly used one-time pad achieves perfect secrecy.
