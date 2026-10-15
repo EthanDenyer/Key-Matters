@@ -50,6 +50,5 @@ XORAttack() tests all 256 possible eight-bit keys against a ciphertext byte. For
 
 In the demonstration, key 67 ('C') recovers the original plaintext 'B'. However, every possible plaintext byte appears once, so the ciphertext alone cannot identify the correct answer without additional information.
 
-The next experiment will use a longer message encrypted with the same single-byte key. The search still requires only 256 candidate keys, but meaningful text should make the correct result easier to recognise. Later experiments will investigate longer keys and their effect on cryptanalysis.
-
+This demonstration is meant to demonstrate the concept at work with a single plaintext byte. 
 
