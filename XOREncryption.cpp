@@ -24,10 +24,10 @@ void DemoConversion(){
     }
 }
 
-// This XOR function works by taking a plaintext message, converting into binary and then XORing with a key of the same
+// This XOR function works by taking a plaintext character, converting into binary and then XORing with a key of the same
 // length as the binary plaintext message to give its encrypted ciphertext. 
 
-void XOR(){
+bitset<8> XOREncrypt(){
     bitset<8> PlaintextBinary(Plaintext); // 8 bit plaintext 
     bitset<8> PlaintextKey(Key1); // 8 bit key
     bitset<8> Ciphertext; // Storage for XOR 
@@ -36,10 +36,17 @@ void XOR(){
     cout << "Plaintext is: " << PlaintextBinary << "\n"; // Debug binary length
     cout << "Plaintext Key is: " << PlaintextKey << "\n"; // Debug binary length
     cout << "Ciphertext is: " << Ciphertext << "\n";
+    
+    return Ciphertext;
 }
 
+void XORDecrypt(bitset<8> Ciphertext){
+    cout << "If you see this i have successfully passed the value" << Ciphertext;
+}
 int main(){
     // DemoConversion(); // Call the function
-    XOR();
+    bitset<8> EncryptedMessage = XOREncrypt();
+    XORDecrypt(EncryptedMessage);
+
 return 0;
 }
