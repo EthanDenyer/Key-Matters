@@ -30,12 +30,6 @@ Ciphertext: 00000001
 
 The function displays these values and returns the ciphertext to its caller.
 
-## Returning and Passing Ciphertext
-
-`main()` stores the value returned by `BasicXOREncrypt()` in `EncryptedMessage`.
-
-That value can then be passed into another function, allowing encryption and decryption to remain separate. This demonstrates function return types, local variables, and parameters.
-
 ## Basic XOR Decryption
 
 `BasicXORDecrypt()` receives the ciphertext as a parameter and applies XOR using the same key:
@@ -50,24 +44,12 @@ The recovered bitset is converted into a numeric value using `.to_ulong()`, then
 
 Both encryption and decryption obtain their key from the global variable `Key1`.
 
-## Why Decryption Works
+## Brute-Force Attack on Single-Byte XOR
 
-Applying XOR with the same key twice restores the original value:
+XORAttack() tests all 256 possible eight-bit keys against a ciphertext byte. For each candidate key, it performs XOR, converts the result into a character, and displays the candidate plaintext alongside the key value.
 
-```text
-Ciphertext = Plaintext XOR Key
-Plaintext  = Ciphertext XOR Key
-```
+In the demonstration, key 67 ('C') recovers the original plaintext 'B'. However, every possible plaintext byte appears once, so the ciphertext alone cannot identify the correct answer without additional information.
 
-This demonstrates symmetric encryption: the same secret key is used to encrypt and decrypt.
+The next experiment will use a longer message encrypted with the same single-byte key. The search still requires only 256 candidate keys, but meaningful text should make the correct result easier to recognise. Later experiments will investigate longer keys and their effect on cryptanalysis.
 
-## Running the Demonstrations
-
-The calls in `main()` control which demonstrations run:
-
-- `DemoConversion()` displays character conversion.
-- `BasicXOREncrypt()` produces and returns ciphertext.
-- `BasicXORDecrypt(EncryptedMessage)` recovers the original character.
-
-Uncomment the relevant calls to enable each demonstration. Decryption requires the ciphertext returned by encryption.
 
