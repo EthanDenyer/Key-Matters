@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <string>
 #include <bitset>
+#include <vector>
 using namespace std; 
 
 // Globals
@@ -54,12 +55,13 @@ void XORAttack(bitset<8> Ciphertext){
     } 
 }
 
-void SingleKeyXORAttack(){
+void SingleKeyXORSetup(){
     bitset<8> SingleKeyC(Key1);
-    cout << SingleKeyC;
+    vector<bitset<8>> ciphertext;
     for (char c : SingleKeyDemo){
         bitset<8> SingleKeyMessage(c);
-
+        bitset<8> XORResult = SingleKeyMessage ^ SingleKeyC;
+        ciphertext.push_back(XORResult);
     }
 }
 
@@ -69,6 +71,6 @@ int main(){ // Simply uncomment the parts which you would like to demonstrate
     //bitset<8> EncryptedMessage = BasicXOREncrypt();
     // BasicXORDecrypt(EncryptedMessage);
     // XORAttack(EncryptedMessage);
-    SingleKeyXORAttack();
+    SingleKeyXORSetup();
 return 0;
 }
