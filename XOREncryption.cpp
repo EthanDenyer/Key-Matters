@@ -55,11 +55,12 @@ void XORAttack(bitset<8> Ciphertext){
 }
 
 void SingleKeyXORAttack(){
+    bitset<8> SingleKeyC(Key1);
+    cout << SingleKeyC;
     for (char c : SingleKeyDemo){
         bitset<8> SingleKeyMessage(c);
-        
-    }
 
+    }
 }
 
 
