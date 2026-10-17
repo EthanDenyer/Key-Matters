@@ -44,7 +44,7 @@ The recovered bitset is converted into a numeric value using `.to_ulong()`, then
 
 Both encryption and decryption obtain their key from the global variable `Key1`.
 
-## Brute-Force Attack on Single-Byte XOR
+## Brute-Force Attack on a Char Encrypted with Single-Byte XOR
 
 `XORAttack()` receives the ciphertext as a parameter and tests all 256 possible eight-bit keys, from `0` to `255`.
 
@@ -67,3 +67,5 @@ Key: 68 produced: E
 Key `67` (`'C'`) recovers the original plaintext `'B'`. The attack does not access the original key; it tries every possibility.
 
 This demonstrates that a single-byte key has a small, exhaustively searchable key space. However, every possible plaintext byte appears once, so the attack cannot identify the correct character without additional information.
+
+## Brute-Force Attack on a Message Encrypted with Single-Byte XOR
