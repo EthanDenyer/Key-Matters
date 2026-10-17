@@ -1,6 +1,6 @@
 # Key Matters: Exploring XOR Encryption in C++
 
-An educational C++ project exploring binary representation, XOR encryption, and decryption. Built as my second C++ program, it makes the intermediate values visible to demonstrate how the operations work.
+An educational C++ project exploring binary representation, XOR encryption, and decryption. Built as my second C++ program, it makes the intermediate values visible to demonstrate how the operations work. This is entirely my own work. 
 
 ## Character-to-Binary Conversion
 
