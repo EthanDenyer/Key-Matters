@@ -69,3 +69,9 @@ Key `67` (`'C'`) recovers the original plaintext `'B'`. The attack does not acce
 This demonstrates that a single-byte key has a small, exhaustively searchable key space. However, every possible plaintext byte appears once, so the attack cannot identify the correct character without additional information.
 
 ## Brute-Force Attack on a Message Encrypted with Single-Byte XOR
+
+A unique function converts a new example message "SingleKeyDemo" to binary and XOR's the result with a single character key:
+
+```text
+Candidate key: 01000011
+```
