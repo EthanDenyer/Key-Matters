@@ -75,3 +75,7 @@ A unique function converts a new example message "SingleKeyDemo" to binary and X
 ```text
 Candidate key: 01000011
 ```
+
+This means that the ciphertext result consists of the same key being used to XOR each 8 bit section of the message. 
+
+Each encrypted byte is stored in a `vector<bitset<8>>`. The function returns the complete ciphertext vector so it can be passed to a brute-force attack.
