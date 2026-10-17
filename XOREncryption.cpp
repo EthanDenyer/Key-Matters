@@ -8,6 +8,7 @@ using namespace std;
 string DemoConversionMessage = "Here is a demonstration that I can convert from strings to binary";
 char Plaintext = 'B';
 char Key1 = 'C';
+string SingleKeyDemo = "This is a message which I will encrypt using a single key repeated over the message.";
 
 void DemoConversion(){
     for (char c : DemoConversionMessage){
@@ -53,11 +54,20 @@ void XORAttack(bitset<8> Ciphertext){
     } 
 }
 
-int main(){ // Simply uncomment the parts which you would like to demonstrate
-    // DemoConversion(); // Call the function
-    bitset<8> EncryptedMessage = BasicXOREncrypt();
-    // BasicXORDecrypt(EncryptedMessage);
-    XORAttack(EncryptedMessage);
+void SingleKeyXORAttack(){
+    for (char c : SingleKeyDemo){
+        bitset<8> SingleKeyMessage(c);
+        
+    }
 
+}
+
+
+int main(){ // Simply uncomment the parts which you would like to demonstrate
+    //DemoConversion(); // Call the function
+    //bitset<8> EncryptedMessage = BasicXOREncrypt();
+    // BasicXORDecrypt(EncryptedMessage);
+    // XORAttack(EncryptedMessage);
+    SingleKeyXORAttack();
 return 0;
 }
