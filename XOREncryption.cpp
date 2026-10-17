@@ -55,7 +55,7 @@ void XORAttack(bitset<8> Ciphertext){
     } 
 }
 
-void SingleKeyXORSetup(){
+vector<bitset<8>> SingleKeyXORSetup(){
     bitset<8> SingleKeyC(Key1);
     vector<bitset<8>> ciphertext;
     for (char c : SingleKeyDemo){
@@ -63,6 +63,7 @@ void SingleKeyXORSetup(){
         bitset<8> XORResult = SingleKeyMessage ^ SingleKeyC;
         ciphertext.push_back(XORResult);
     }
+    return ciphertext;
 }
 
 
