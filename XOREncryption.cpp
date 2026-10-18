@@ -57,14 +57,30 @@ void XORAttack(bitset<8> Ciphertext){
 
 vector<bitset<8>> SingleKeyXORSetup(){
     bitset<8> SingleKeyC(Key1);
-    vector<bitset<8>> ciphertext;
+    vector<bitset<8>> SKciphertext;
     for (char c : SingleKeyDemo){
         bitset<8> SingleKeyMessage(c);
         bitset<8> XORResult = SingleKeyMessage ^ SingleKeyC;
-        ciphertext.push_back(XORResult);
+        SKciphertext.push_back(XORResult);
     }
-    return ciphertext;
+    return SKciphertext;
 }
+
+void SingleKeyXORAttack(const vector<bitset<8>>& SKciphertext) {
+    for (int z = 0; z < 256; ++z) {
+        bitset<8> converted(z);
+        cout << "Key " << z << ": ";
+
+        for (size_t index = 0; index < SKciphertext.size(); ++index) {
+            bitset<8> binarytext = converted ^ SKciphertext[index];
+            char candidate = static_cast<char>(binarytext.to_ulong());
+            cout << candidate;
+        }
+
+        cout << '\n';
+    }
+}
+
 
 
 int main(){ // Simply uncomment the parts which you would like to demonstrate
@@ -73,5 +89,7 @@ int main(){ // Simply uncomment the parts which you would like to demonstrate
     // BasicXORDecrypt(EncryptedMessage);
     // XORAttack(EncryptedMessage);
     SingleKeyXORSetup();
+    vector<bitset<8>> SKciphertext = SingleKeyXORSetup();
+    SingleKeyXORAttack(SKciphertext);
 return 0;
 }
