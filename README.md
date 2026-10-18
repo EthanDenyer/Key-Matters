@@ -79,3 +79,9 @@ Candidate key: 01000011
 This means that the ciphertext result consists of the same key being used to XOR each 8 bit section of the message. 
 
 Each encrypted byte is stored in a `vector<bitset<8>>`. The function returns the complete ciphertext vector so it can be passed to a brute-force attack.
+
+In my example, key 67 ('C') produces the original message:
+
+`This is a message which I will encrypt using a single key repeated over the message.`
+
+The attack does not access the original key. It tries each possibility, and the readable English text makes the correct result recognizable. Other keys may produce unusual or non-printable characters, so their output can look messy. This demonstrates that a single-byte XOR key has a small key space and that repeating it across a message makes it vulnerable to brute force.
